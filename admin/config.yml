@@ -1,0 +1,5 @@
+backend:
+  name: github
+  repo: TU-USUARIO/TU-REPOSITORIO
+media_folder: assets/img
+public_folder: /assets/img
