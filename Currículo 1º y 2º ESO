@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo LOMLOE - Educación Física (1º ESO Cantabria)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0d1326',
+                            header: '#121933',
+                            accent: '#2563eb',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        [contenteditable="true"]:focus {
+            outline: 2px dashed #3b82f6;
+            outline-offset: 3px;
+            background-color: rgba(59, 130, 246, 0.05);
+            border-radius: 4px;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; padding: 0 !important; }
+            [contenteditable="true"] { outline: none !important; background: transparent !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 min-h-screen text-slate-800 font-sans flex flex-col pb-16">
+
+    <!-- Top Navbar -->
+    <header class="bg-brand-header text-white sticky top-0 z-40 shadow-lg no-print">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="bg-blue-600 text-white p-2.5 rounded-lg shadow-inner flex items-center justify-center">
+                    <i class="fa-solid fa-graduation-cap text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-base md:text-lg leading-tight tracking-wide">
+                        <span id="navTitle" contenteditable="true">Educación Física — Currículo LOMLOE (Cantabria 1º ESO)</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">Objetivos, Competencias, Criterios, Tareas y Evaluación</p>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2">
+                <button onclick="saveChanges()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs md:text-sm px-3.5 py-2 rounded-lg font-medium transition flex items-center gap-1.5 shadow">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    <span>Guardar Todo</span>
+                </button>
+                <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white text-xs md:text-sm px-3.5 py-2 rounded-lg font-medium transition flex items-center gap-1.5 shadow">
+                    <i class="fa-solid fa-print"></i>
+                    <span>Imprimir / PDF</span>
+                </button>
+                <button onclick="resetData()" class="bg-slate-700 hover:bg-slate-800 text-slate-200 text-xs md:text-sm px-3.5 py-2 rounded-lg font-medium transition flex items-center gap-1.5 shadow" title="Restablecer valores iniciales">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <span>Restablecer</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 mt-6 flex-grow w-full space-y-8">
+
+        <!-- Header Card / Metadata -->
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
+            <div class="border-b border-slate-200 pb-4 mb-4">
+                <h2 id="mainHeading" contenteditable="true" class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
+                    Programación Didáctica Interactiva (1º ESO)
+                </h2>
+                <p id="mainSubheading" contenteditable="true" class="text-sm text-slate-600 mt-1">
+                    Documento normativo completo con objetivos, competencias, criterios, tareas prácticas y procedimientos de evaluación.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-700">
+                <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                    <span class="font-bold text-slate-400 block mb-1">ETAPA / NIVEL</span>
+                    <span contenteditable="true" class="font-semibold text-slate-900">1º de la ESO</span>
+                </div>
+                <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                    <span class="font-bold text-slate-400 block mb-1">MARCO NORMATIVO</span>
+                    <span contenteditable="true" class="font-semibold text-slate-900">LOMLOE - Comunidad de Cantabria (Decreto 73/2022)</span>
+                </div>
+                <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                    <span class="font-bold text-slate-400 block mb-1">MATERIA</span>
+                    <span contenteditable="true" class="font-semibold text-slate-900">Educación Física</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pestañas de Navegación -->
+        <div class="flex border-b border-slate-300 gap-2 md:gap-4 overflow-x-auto no-print">
+            <button onclick="switchTab('objetivos')" id="btn-tab-objetivos" class="pb-3 px-4 font-bold text-sm border-b-2 border-blue-600 text-blue-600 transition flex items-center gap-2 whitespace-nowrap">
+                <i class="fa-solid fa-bullseye"></i> Objetivos ESO
+            </button>
+            <button onclick="switchTab('competencias-clave')" id="btn-tab-competencias-clave" class="pb-3 px-4 font-bold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition flex items-center gap-2 whitespace-nowrap">
+                <i class="fa-solid fa-key"></i> Competencias Clave
+            </button>
+            <button onclick="switchTab('competencias')" id="btn-tab-competencias" class="pb-3 px-4 font-bold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition flex items-center gap-2 whitespace-nowrap">
+                <i class="fa-solid fa-compass"></i> Competencias Específicas
+            </button>
+            <button onclick="switchTab('criterios')" id="btn-tab-criterios" class="pb-3 px-4 font-bold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition flex items-center gap-2 whitespace-nowrap">
+                <i class="fa-solid fa-list-check"></i> Criterios y Saberes
+            </button>
+            <button onclick="switchTab('objetivos-didacticos')" id="btn-tab-objetivos-didacticos" class="pb-3 px-4 font-bold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition flex items-center gap-2 whitespace-nowrap">
+                <i class="fa-solid fa-crosshairs"></i> Objetivos Didácticos
+            </button>
+            <button onclick="switchTab('tareas')" id="btn-tab-tareas" class="pb-3 px-4 font-bold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition flex items-center gap-2 whitespace-nowrap">
+                <i class="fa-solid fa-person-running"></i> Tareas y Evidencias
+            </button>
+            <button onclick="switchTab('evaluacion')" id="btn-tab-evaluacion" class="pb-3 px-4 font-bold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition flex items-center gap-2 whitespace-nowrap">
+                <i class="fa-solid fa-clipboard-check"></i> Procedimientos e Instrumentos
+            </button>
+            <button onclick="switchTab('saberes')" id="btn-tab-saberes" class="pb-3 px-4 font-bold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition flex items-center gap-2 whitespace-nowrap">
+                <i class="fa-solid fa-book-open"></i> Vista de Saberes Básicos
+            </button>
+        </div>
+
+        <!-- SECCIÓN: OBJETIVOS DE LA ESO -->
+        <section id="section-objetivos" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900">Objetivos de la Educación Secundaria Obligatoria</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">Capacidades generales que contribuye a desarrollar la etapa educativa.</p>
+                </div>
+                <div class="no-print">
+                    <button onclick="addObjetivoCard()" class="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-2 rounded-lg font-medium transition flex items-center gap-1 shadow">
+                        <i class="fa-solid fa-plus"></i> Añadir Objetivo
+                    </button>
+                </div>
+            </div>
+            <div id="objetivos-grid" class="space-y-4"></div>
+        </section>
+
+        <!-- SECCIÓN: COMPETENCIAS CLAVE -->
+        <section id="section-competencias-clave" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 hidden">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900">Competencias Clave y Descriptores Operativos (ESO)</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">Perfil de salida del alumnado al término de la enseñanza obligatoria.</p>
+                </div>
+                <div class="no-print">
+                    <button onclick="addCompetenciaClaveCard()" class="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-2 rounded-lg font-medium transition flex items-center gap-1 shadow">
+                        <i class="fa-solid fa-plus"></i> Añadir Competencia Clave
+                    </button>
+                </div>
+            </div>
+            <div id="competencias-clave-grid" class="space-y-6"></div>
+        </section>
+
+        <!-- SECCIÓN: COMPETENCIAS ESPECÍFICAS -->
+        <section id="section-competencias" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 hidden">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900">Competencias Específicas de la Materia (ESO)</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">Edita los textos o añade nuevas competencias según la normativa.</p>
+                </div>
+                <div class="no-print">
+                    <button onclick="addCompetenciaCard()" class="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-2 rounded-lg font-medium transition flex items-center gap-1 shadow">
+                        <i class="fa-solid fa-plus"></i> Añadir Competencia
+                    </button>
+                </div>
+            </div>
+            <div id="competencias-grid" class="space-y-6"></div>
+        </section>
+
+        <!-- SECCIÓN: CRITERIOS DE EVALUACIÓN Y SABERES ASOCIADOS -->
+        <section id="section-criterios" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 hidden">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900">Matriz Oficial: Criterios de Evaluación y Saberes Básicos</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">Edita cualquier celda directamente haciendo clic sobre ella.</p>
+                </div>
+                <div class="no-print flex gap-2">
+                    <button onclick="addRow('table-criteria-body', 'criteria')" class="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-2 rounded-lg font-medium transition flex items-center gap-1 shadow">
+                        <i class="fa-solid fa-plus"></i> Añadir Fila
+                    </button>
+                    <button onclick="addRow('table-criteria-body', 'block')" class="bg-slate-800 hover:bg-slate-900 text-white text-xs px-3 py-2 rounded-lg font-medium transition flex items-center gap-1 shadow">
+                        <i class="fa-solid fa-bookmark"></i> Añadir Bloque
+                    </button>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-xs md:text-sm">
+                    <thead>
+                        <tr class="bg-slate-900 text-white">
+                            <th class="p-3.5 rounded-l-lg w-1/12">Código</th>
+                            <th class="p-3.5 w-4/12">Criterio de Evaluación oficial</th>
+                            <th class="p-3.5 w-5/12">Saberes Básicos asociados</th>
+                            <th class="p-3.5 rounded-r-lg text-center no-print w-16">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-criteria-body" class="divide-y divide-slate-200"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: OBJETIVOS DIDÁCTICOS Y EJEMPLOS PRÁCTICOS -->
+        <section id="section-objetivos-didacticos" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 hidden">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900">Objetivos Didácticos y Ejemplos Prácticos (1º ESO)</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">Desglose operativo vinculado a los criterios de evaluación y actividades prácticas.</p>
+                </div>
+                <div class="no-print">
+                    <button onclick="addObjetivoDidacticoRow()" class="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-2 rounded-lg font-medium transition flex items-center gap-1 shadow">
+                        <i class="fa-solid fa-plus"></i> Añadir Objetivo Didáctico
+                    </button>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-xs md:text-sm">
+                    <thead>
+                        <tr class="bg-slate-900 text-white">
+                            <th class="p-3.5 rounded-l-lg w-1/12">Criterio</th>
+                            <th class="p-3.5 w-4/12">¿Qué significa? (Objetivo Didáctico / Operativo)</th>
+                            <th class="p-3.5 w-5/12">Ejemplo Práctico en el aula / pista</th>
+                            <th class="p-3.5 rounded-r-lg text-center no-print w-16">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-objetivos-didacticos-body" class="divide-y divide-slate-200"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: TAREAS Y EVIDENCIAS OBSERVABLES -->
+        <section id="section-tareas" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 hidden">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900">Ejemplos de Tareas para Trabajar en Clase y Evidencias Observables</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">Relación oficial de situaciones motrices en el pabellón con sus correspondientes códigos y evidencias asociadas.</p>
+                </div>
+                <div class="no-print">
+                    <button onclick="addTareaRow()" class="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-2 rounded-lg font-medium transition flex items-center gap-1 shadow">
+                        <i class="fa-solid fa-plus"></i> Añadir Tarea
+                    </button>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-xs md:text-sm">
+                    <thead>
+                        <tr class="bg-slate-900 text-white">
+                            <th class="p-3.5 rounded-l-lg w-1/12">Código</th>
+                            <th class="p-3.5 w-6/12">Situación o tarea en el pabellón</th>
+                            <th class="p-3.5 w-4/12">Evidencia observable</th>
+                            <th class="p-3.5 rounded-r-lg text-center no-print w-16">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-tareas-body" class="divide-y divide-slate-200"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: PROCEDIMIENTOS E INSTRUMENTOS DE EVALUACIÓN -->
+        <section id="section-evaluacion" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 hidden space-y-8">
+            <div>
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900">Procedimientos de Evaluación</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">Métodos y vías de recogida de evidencias con sus criterios especialmente adecuados.</p>
+                    </div>
+                    <div class="no-print">
+                        <button onclick="addProcedimientoRow()" class="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-2 rounded-lg font-medium transition flex items-center gap-1 shadow">
+                            <i class="fa-solid fa-plus"></i> Añadir Procedimiento
+                        </button>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs md:text-sm">
+                        <thead>
+                            <tr class="bg-slate-900 text-white">
+                                <th class="p-3.5 rounded-l-lg w-3/12">Procedimiento</th>
+                                <th class="p-3.5 w-5/12">Aplicación</th>
+                                <th class="p-3.5 w-3/12">Criterios especialmente adecuados</th>
+                                <th class="p-3.5 rounded-r-lg text-center no-print w-16">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-procedimientos-body" class="divide-y divide-slate-200"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="pt-6 border-t border-slate-200">
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900">Instrumentos de Evaluación</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">Herramientas concretas de registro y calificación aplicadas.</p>
+                    </div>
+                    <div class="no-print">
+                        <button onclick="addInstrumentoRow()" class="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-2 rounded-lg font-medium transition flex items-center gap-1 shadow">
+                            <i class="fa-solid fa-plus"></i> Añadir Instrumento
+                        </button>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs md:text-sm">
+                        <thead>
+                            <tr class="bg-slate-900 text-white">
+                                <th class="p-3.5 rounded-l-lg w-4/12">Instrumento</th>
+                                <th class="p-3.5 w-7/12">Uso previsto</th>
+                                <th class="p-3.5 rounded-r-lg text-center no-print w-16">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-instrumentos-body" class="divide-y divide-slate-200"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: VISTA DE SABERES BÁSICOS -->
+        <section id="section-saberes" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 hidden">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900">Resumen General de Bloques de Saberes Básicos</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">Estructura global editable de contenidos de 1º de ESO en Cantabria.</p>
+                </div>
+                <div class="no-print">
+                    <button onclick="addSabesCard()" class="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-2 rounded-lg font-medium transition flex items-center gap-1 shadow">
+                        <i class="fa-solid fa-plus"></i> Añadir Bloque de Saberes
+                    </button>
+                </div>
+            </div>
+            <div id="saberes-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+        </section>
+
+    </main>
+
+    <!-- Toast de Notificación -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-slate-900 text-white text-xs px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 z-50 no-print">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+        <span id="toastMsg">Cambios guardados correctamente</span>
+    </div>
+
+    <script>
+        // Datos iniciales de Objetivos de la ESO
+        const DEFAULT_OBJETIVOS = [
+            { id: "a)", text: "Asumir responsablemente sus deberes, conocer y ejercer sus derechos en el respeto a las demás personas, practicar la tolerancia, la cooperación y la solidaridad entre individuos y grupos." },
+            { id: "b)", text: "Desarrollar y consolidar hábitos de disciplina, estudio y trabajo individual y en equipo como condición necesaria para una realización eficaz de las tareas del aprendizaje y como medio de desarrollo personal." },
+            { id: "c)", text: "Valorar y respetar la diferencia de sexos y la igualdad de derechos y oportunidades entre ellos. Rechazar los estereotipos que supongan discriminación entre hombres y mujeres." },
+            { id: "d)", text: "Fortalecer sus capacidades afectivas en todos los ámbitos de la personalidad y en sus relaciones con los demás, así como rechazar la violencia, los prejuicios de cualquier tipo, los comportamientos sexistas y resolver pacíficamente los conflictos." },
+            { id: "e)", text: "Desarrollar destrezas básicas en la utilización de las fuentes de información para, con sentido crítico, adquirir nuevos conocimientos. Adquirir una preparación básica en el campo de las tecnologías, especialmente las de la información y la comunicación." },
+            { id: "f)", text: "Concebir el conocimiento científico como un saber integrado, que se estructura en distintas disciplinas, así como conocer y aplicar los métodos para identificar los problemas en los diversos campos del conocimiento y de la experiencia." },
+            { id: "g)", text: "Desarrollar el espíritu emprendedor y la confianza en sí mismo, la participación, el sentido crítico, la iniciativa personal y la capacidad para aprender a aprender, planificar, tomar decisiones y asumir responsabilidades." },
+            { id: "h)", text: "Comprender y expresar con corrección, oralmente y por escrito, en la lengua castellana y, en su caso, en la lengua cooficial de la comunidad autónoma, textos y mensajes complejos, e iniciarse en el estudio de la literatura." },
+            { id: "i)", text: "Comprender y expresarse en una o más lenguas extranjeras de manera apropiada." },
+            { id: "j)", text: "Conocer, valorar y respetar los aspectos básicos de la cultura y la historia propia y de los demás, así como el patrimonio artístico y cultural." },
+            { id: "k)", text: "Conocer y aceptar el funcionamiento del propio cuerpo y el de los otros, respetar las diferencias, afianzar los hábitos de cuidado y salud corporales e incorporar la educación física y la práctica del deporte para favorecer el desarrollo personal y social." },
+            { id: "l)", text: "Apreciar la creación artística y comprender el lenguaje de las distintas manifestaciones artísticas, utilizando diversos medios de expresión y representación." },
+            { id: "m)", text: "Desarrollar actitudes que contribuyan al desarrollo sostenible de Cantabria y del planeta, analizando las causas y consecuencias de los problemas ambientales locales y globales." },
+            { id: "n)", text: "Conocer y valorar el patrimonio histórico, natural, cultural y las tradiciones de la Comunidad Autónoma de Cantabria, favoreciendo su conservación y respeto." }
+        ];
+
+        // Datos iniciales de Competencias Clave
+        const DEFAULT_COMPETENCIAS_CLAVE = [
+            {
+                title: "Competencia en comunicación lingüística (CCL)",
+                items: [
+                    { code: "CCL1", text: "Se expresa de forma oral, escrita, signada o multimodal con coherencia, corrección y adecuación a los diferentes contextos sociales." },
+                    { code: "CCL2", text: "Comprende, interpreta y valora textos orales, escritos o multimodales con actitud crítica." },
+                    { code: "CCL3", text: "Localiza, selecciona y contrasta información procedente de diferentes fuentes evaluando su fiabilidad y pertinencia." },
+                    { code: "CCL4", text: "Lee con autonomía obras diversas adecuadas a su edad, apreciando el patrimonio literario." },
+                    { code: "CCL5", text: "Pone sus prácticas comunicativas al servicio de la convivencia democrática y la resolución dialogada de conflictos." }
+                ]
+            },
+            {
+                title: "Competencia plurilingüe (CP)",
+                items: [
+                    { code: "CP1", text: "Utiliza eficazmente una o más lenguas para responder a necesidades comunicativas." },
+                    { code: "CP2", text: "Realiza transferencias entre distintas lenguas como estrategia para comunicarse." },
+                    { code: "CP3", text: "Conoce, valora y respeta la diversidad lingüística y cultural presente en la sociedad." }
+                ]
+            },
+            {
+                title: "Competencia matemática y en ciencia, tecnología e ingeniería (STEM)",
+                items: [
+                    { code: "STEM1", text: "Utiliza métodos inductivos y deductivos propios del razonamiento matemático." },
+                    { code: "STEM2", text: "Utiliza el pensamiento científico para entender y explicar los fenómenos que ocurren alrededor." },
+                    { code: "STEM3", text: "Plantea y desarrolla proyectos diseñando, fabricando y evaluando prototipos para resolver necesidades." },
+                    { code: "STEM4", text: "Interpreta y transmite elementos de procesos científicos y tecnológicos de forma clara." },
+                    { code: "STEM5", text: "Emprende acciones para promover la salud física, mental y social, y preservar el medio ambiente." }
+                ]
+            },
+            {
+                title: "Competencia digital (CD)",
+                items: [
+                    { code: "CD1", text: "Realiza búsquedas en Internet atendiendo a criterios de validez, calidad y fiabilidad." },
+                    { code: "CD2", text: "Gestiona y utiliza su entorno personal digital de aprendizaje para construir conocimiento." },
+                    { code: "CD3", text: "Se comunica y colabora compartiendo contenidos mediante plataformas virtuales de manera responsable." },
+                    { code: "CD4", text: "Identifica riesgos y adopta medidas preventiveas al usar tecnologías digitales." },
+                    { code: "CD5", text: "Desarrolla aplicaciones informáticas sencillas y soluciones tecnológicas creativas." }
+                ]
+            },
+            {
+                title: "Competencia personal, social y de aprender a aprender (CPSAA)",
+                items: [
+                    { code: "CPSAA1", text: "Regula y expresa sus emociones, fortaleciendo el optimismo, la resiliencia y la motivación." },
+                    { code: "CPSAA2", text: "Comprende los riesgos para la salud y consolida estilos de vida saludable." },
+                    { code: "CPSAA3", text: "Comprende las perspectivas de los demás y participa de forma equitativa en el trabajo en grupo." },
+                    { code: "CPSAA4", text: "Realiza autoevaluaciones sobre su proceso de aprendizaje buscando fuentes fiables." },
+                    { code: "CPSAA5", text: "Planea objetivos a medio plazo y desarrolla procesos metacognitivos para aprender de los errores." }
+                ]
+            },
+            {
+                title: "Competencia ciudadana (CC)",
+                items: [
+                    { code: "CC1", text: "Analiza y comprende ideas relativas a la dimensión social y ciudadana de su identidad." },
+                    { code: "CC2", text: "Asume los principios y valores de la integración europea, la constitución y los derechos humanos." },
+                    { code: "CC3", text: "Comprende y analiza problemas éticos fundamentales y de actualidad desarrollando juicios propios." },
+                    { code: "CC4", text: "Comprende las relaciones de interdependencia y adopta un estilo de vida sostenible." }
+                ]
+            },
+            {
+                title: "Competencia emprendedora (CE)",
+                items: [
+                    { code: "CE1", text: "Analiza necesidades y oportunidades y afronta retos con sentido crítico e innovador." },
+                    { code: "CE2", text: "Evalúa fortalezas y debilidades propias y comprende elementos fundamentales de economía y finanzas." },
+                    { code: "CE3", text: "Desarrolla la creación de ideas y toma decisiones usando estrategias ágiles de planificación." }
+                ]
+            },
+            {
+                title: "Competencia en conciencia y expresión culturales (CCEC)",
+                items: [
+                    { code: "CCEC1", text: "Conoce, aprecia críticamente y respeta el patrimonio cultural y artístico." },
+                    { code: "CCEC2", text: "Disfruta, reconoce y analiza con autonomía las manifestaciones artísticas y culturales." },
+                    { code: "CCEC3", text: "Expresa ideas, sentimientos y emociones por medio de producciones culturales y artísticas." },
+                    { code: "CCEC4", text: "Conoce, selecciona y utiliza con creatividad diversos medios y soportes para la creación artística." }
+                ]
+            }
+        ];
+
+        // Datos iniciales de Competencias Específicas
+        const DEFAULT_COMPETENCIAS = [
+            {
+                title: "Competencia específica 1",
+                text: "Adoptar un estilo de vida activo y saludable, seleccionando e incorporando intencionalmente actividades físicas y deportivas en las rutinas diarias.",
+                descriptors: "STEM2, STEM5, CD4, CPSAA2 y CPSAA4."
+            },
+            {
+                title: "Competencia específica 2",
+                text: "Adaptar, con progresiva autonomía, las capacidades físicas, perceptivo-motrices y coordinativas, así como las habilidades y destrezas motrices mediante la planificación de proyectos.",
+                descriptors: "CPSAA4, CPSAA5, CE2 y CE3."
+            },
+            {
+                title: "Competencia específica 3",
+                text: "Compartir espacios de práctica físico-deportiva con independencia de diferencias culturales, sociales, de género y de habilidad, gestionando el juego limpio.",
+                descriptors: "CCL5, CPSAA1, CPSAA3 y CC3."
+            },
+            {
+                title: "Competencia específica 4",
+                text: "Practicar, analizar y valorar distintas manifestaciones de la cultura motriz de Cantabria y otras culturas, aprovechando recursos expresivos.",
+                descriptors: "CC2, CC3, CCEC1, CCEC2, CCEC3 y CCEC4."
+            },
+            {
+                title: "Competencia específica 5",
+                text: "Adoptar un estilo de vida sostenible y ecosocialmente responsable aplicando medidas de seguridad y desarrollando acciones de servicio a la comunidad en el entorno natural.",
+                descriptors: "STEM5, CC4, CE1 y CE3."
+            }
+        ];
+
+        // Datos completos de la tabla de criterios y saberes basada en Decreto 73/2022 (Cantabria)
+        const DEFAULT_CRITERIA = `
+            <tr class="bg-slate-800 text-white font-bold"><td colspan="3" contenteditable="true" class="p-3 uppercase tracking-wide">BLOQUE 1: SALUD Y ESTILO DE VIDA ACTIVO</td><td class="text-center no-print p-3"><button onclick="deleteRow(this)" class="text-rose-300 hover:text-white p-1" title="Eliminar bloque"><i class="fa-solid fa-trash-can"></i></button></td></tr>
+            <tr>
+                <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">1.1</td>
+                <td class="p-3 align-top" contenteditable="true">Establecer y organizar secuencias sencillas de actividad física orientada al concepto integral de salud y al estilo de vida activo, a partir de una valoración del nivel inicial y respetando la propia realidad e identidad corporal.</td>
+                <td class="p-3 align-top" contenteditable="true">A1.1 Tasa mínima de actividad física diaria y semanal. Adaptación del volumen y la intensidad a las características personales. A1.2 Alimentación saludable y valor nutricional de los alimentos.</td>
+                <td class="text-center no-print p-3 align-top"><button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button></td>
+            </tr>
+            <tr>
+                <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">1.2</td>
+                <td class="p-3 align-top" contenteditable="true">Comenzar a incorporar con progresiva autonomía procesos de activación corporal, dosificación del esfuerzo, alimentación saludable, educación postural, relajación e higiene durante la práctica de actividades motrices.</td>
+                <td class="p-3 align-top" contenteditable="true">A1.3 Educación postural: técnicas básicas de descarga postural y relajación. Musculatura 'core'. A1.4 El cuidado del cuerpo (calentamiento general autónomo, pautas para tratar el dolor muscular). B3 La higiene como elemento imprescindible.</td>
+                <td class="text-center no-print p-3 align-top"><button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button></td>
+            </tr>
+            <tr>
+                <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">1.3</td>
+                <td class="p-3 align-top" contenteditable="true">Adoptar de manera responsable y con progresiva autonomía medidas generales para la prevención de lesiones antes, durante y después de la práctica de actividad física, aprendiendo a reconocer situaciones de riesgo para actuar preventivamente.</td>
+                <td class="p-3 align-top" contenteditable="true">B5 Prevención de accidentes en las prácticas motrices: calzado deportivo y ergonomía. Medidas de seguridad en actividades físicas dentro y fuera del centro escolar.</td>
+                <td class="text-center no-print p-3 align-top"><button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button></td>
+            </tr>
+            <tr>
+                <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">1.4</td>
+                <td class="p-3 align-top" contenteditable="true">Actuar de acuerdo a los protocolos de intervención ante accidentes derivados de la práctica de actividad física, aplicando medidas básicas de primeros auxilios.</td>
+                <td class="p-3 align-top" contenteditable="true">B6 Actuaciones básicas ante accidentes durante la práctica de actividades físicas. Técnica PAS (proteger, avisar, socorrer). Protocolo 112. Soporte vital básico (SVB).</td>
+                <td class="text-center no-print p-3 align-top"><button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button></td>
+            </tr>
+            <tr>
+                <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">1.5</td>
+                <td class="p-3 align-top" contenteditable="true">Analizar y valorar la incidencia que ciertas prácticas y comportamientos tienen en nuestra salud y en la convivencia, valorando su impacto y evitando activamente su reproducción.</td>
+                <td class="p-3 align-top" contenteditable="true">A2.1 Efectos sobre la salud de malos hábitos vinculados a comportamientos sociales. A3.4 Trastornos alimenticios asociados a la práctica de actividad física y deporte. D4 Identificación y rechazo de conductas contrarias a la convivencia.</td>
+                <td class="text-center no-print p-3 align-top"><button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button></td>
+            </tr>
+            <tr>
+                <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">1.6</td>
+                <td class="p-3 align-top" contenteditable="true">Explorar diferentes recursos y aplicaciones digitales reconociendo su potencial, así como sus riesgos para su uso en el ámbito de la actividad física y el deporte.</td>
+                <td class="p-3 align-top" contenteditable="true">B4 Herramientas digitales para la gestión de la actividad física y control de riesgos de privacidad y uso responsable.</td>
+                <td class="text-center no-print p-3 align-top"><button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button></td>
+            </tr>
+            <tr class="bg-slate-800 text-white font-bold"><td colspan="3" contenteditable="true" class="p-3 uppercase tracking-wide">BLOQUE 2: ORGANIZACIÓN Y RESOLUCIÓN DE PROYECTOS MOTORES</td><td class="text-center no-print p-3"><button onclick="deleteRow(this)" class="text-rose-300 hover:text-white p-1" title="Eliminar bloque"><i class="fa-solid fa-trash-can"></i></button></td></tr>
+            <tr>
+                <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">2.1</td>
+                <td class="p-3 align-top" contenteditable="true">Desarrollar proyectos motores de carácter individual, cooperativo o colaborativo, estableciendo mecanismos para reconducir los procesos de trabajo, incluyendo estrategias de autoevaluación y coevaluación tanto del proceso como del resultado.</td>
+                <td class="p-3 align-top" contenteditable="true">B1 Planificación y autorregulación de proyectos motores: establecimiento de mecanismos de autoevaluación para reconducir los procesos de trabajo. B2 Preparación de la práctica motriz: autoconstrucción de materiales.</td>
+                <td class="text-center no-print p-3 align-top"><button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button></td>
+            </tr>
+            <tr>
+                <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">2.2</td>
+                <td class="p-3 align-top" contenteditable="true">Interpretar y actuar correctamente en contextos motrices variados, aplicando principios básicos decisionales en situaciones lúdicas, juegos modificados y actividades deportivas a partir de la anticipación, adecuándose a las demandas motrices, a la actuación del compañero y del oponente y a la lógica interna en contextos reales o simulados.</td>
+                <td class="p-3 align-top" contenteditable="true">C1.1 Uso consciente del cuerpo. C1.2 Pautas grupales para optimizar recursos. C1.3 Análisis de movimientos del adversario. C1.4 Adecuación de movimientos en oposición. C1.5 Estrategias previas de ataque y defensa.</td>
+                <td class="text-center no-print p-3 align-top"><button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button></td>
+            </tr>
+            <tr>
+                <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">2.3</td>
+                <td class="p-3 align-top" contenteditable="true">Evidenciar control y dominio corporal al emplear los componentes cualitativos y cuantitativos de la motricidad de manera eficiente y creativa, haciendo frente a las demandas de resolución de problemas en situaciones motrices transferibles a su espacio vivencial con progresiva autonomía.</td>
+                <td class="p-3 align-top" contenteditable="true">C2 Capacidades perceptivo-motrices en contexto. C3 Capacidades condicionales: desarrollo con enfoque recreativo. C4 Habilidades motrices específicas asociadas a la técnica. C5 Creatividad motriz.</td>
+                <td class="text-center no-print p-3 align-top"><button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button></td>
+            </tr>
+            <tr class="bg-slate-800 text-white font-bold"><td colspan="3" contenteditable="true" class="p-3 uppercase tracking-wide">BLOQUE 3: INTERACCIÓN Y CONVIVENCIA</td><td class="text-center no-print p-3"><button onclick="deleteRow(this)" class="text-rose-300 hover:text-white p-1" title="Eliminar bloque"><i class="fa-solid fa-trash-can"></i></button></td></tr>
+            <tr>
+                <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">3.1</td>
+                <td class="p-3 align-top" contenteditable="true">Practicar una gran variedad de actividades motrices, valorando las implicaciones éticas de las actitudes antideportivas, evitando la competitividad desmedida y actuando con deportividad al asumir los roles de espectador, participante u otros.</td>
+                <td class="p-3 align-top" contenteditable="true">B4 (Gestión) Elección de la práctica física: gestión de situaciones de competición basadas en lógica, respeto y motivación. D3 Respeto a las reglas y funciones de arbitraje deportivo.</td>
+                <td class="text-center no-print p-3 align-top"><button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button></td>
+            </tr>
+            <tr>
+                <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">3.2</td>
+                <td class="p-3 align-top" contenteditable="true">Cooperar o colaborar en la práctica de diferentes producciones motrices para alcanzar el logro individual y grupal, participando en la toma de decisiones y asumiendo distintos roles asignados y responsabilidades.</td>
+                <td class="p-3 align-top" contenteditable="true">D1.2 Estrategias de autorregulación colectiva del esfuerzo y superación. D2 Habilidades sociales y conductas prosociales en situaciones motrices colectivas.</td>
+                <td class="text-center no-print p-3 align-top"><button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button></td>
+            </tr>
+            <tr>
+                <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">3.3</td>
+                <td class="p-3 align-top" contenteditable="true">Hacer uso con progresiva autonomía de habilidades sociales, diálogo en la resolución de conflictos y respeto ante la diversidad, ya sea de género, afectivo-sexual, de origen nacional, étnico, socio-económica o de competencia motriz, mostrando actitud crítica frente a estereotipos y discriminación.</td>
+                <td class="p-3 align-top" contenteditable="true">A2.3 Comportamientos violentos e incitación al odio en el deporte. D1.3 Perseverancia y tolerancia a la frustración. D4 Identificación y rechazo de conductas contrarias a la convivencia y discriminación.</td>
+                <td class="text-center no-print p-3 align-top"><button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button></td>
+            </tr>
+            <tr class="bg-slate-800 text-white font-bold"><td colspan="3" contenteditable="true" class="p-3 uppercase tracking-wide">BLOQUE 4: PATRIMONIO CULTURAL Y EXPRESIÓN</td><td class="text-center no-print p-3"><button onclick="deleteRow(this)" class="text-rose-300 hover:text-white p-1" title="Eliminar bloque"><i class="fa-solid fa-trash-can"></i></button></td></tr>
+            <tr>
+                <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">4.1</td>
+                <td class="p-3 align-top" contenteditable="true">Gestionar la participación en juegos motores y otras manifestaciones artístico-expresivas vinculadas tanto con la cultura propia de Cantabria como con otras, favoreciendo su conservación y valorando sus orígenes, evolución e influencia en las sociedades contemporáneas.</td>
+                <td class="p-3 align-top" contenteditable="true">E1 Aportaciones de la cultura motriz a la herencia cultural. Juegos y danzas de Cantabria e interculturalidad. E3 Práctica de juegos motores y actividades rítmico-musicales expresivas vinculadas a Cantabria u otras.</td>
+                <td class="text-center no-print p-3 align-top"><button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button></td>
+            </tr>
+            <tr>
+                <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">4.2</td>
+                <td class="p-3 align-top" contenteditable="true">Analizar objetivamente las diferentes actividades y modalidades deportivas según sus características y requerimientos, evitando los posibles estereotipos de género o capacidad vinculados a dichas manifestaciones.</td>
+                <td class="p-3 align-top" contenteditable="true">A2.3 Análisis crítico de estereotipos corporales, de género y competencia motriz. E4 Deporte y perspectiva de género: medios de comunicación e igualdad en profesiones asociadas al deporte. E5 Influencia del deporte como fenómeno de masas.</td>
+                <td class="text-center no-print p-3 align-top"><button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button></td>
+            </tr>
+            <tr>
+                <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">4.3</td>
+                <td class="p-3 align-top" contenteditable="true">Participar activamente en la creación y representación de composiciones de expresión corporal individuales o colectivas con y sin base musical, utilizando intencionadamente y con progresiva autonomía el cuerpo como herramienta de expresión y comunicación a través de diversas técnicas expresivas.</td>
+                <td class="p-3 align-top" contenteditable="true">E2 Usos comunicativos de la corporalidad: expresión de sentimientos y emociones en diferentes contextos. Técnicas de interpretación. E3 Actividades rítmico-musicales con carácter expresivo.</td>
+                <td class="text-center no-print p-3 align-top"><button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button></td>
+            </tr>
+            <tr class="bg-slate-800 text-white font-bold"><td colspan="3" contenteditable="true" class="p-3 uppercase tracking-wide">BLOQUE 5: ENTORNO NATURAL Y SOSTENIBILIDAD</td><td class="text-center no-print p-3"><button onclick="deleteRow(this)" class="text-rose-300 hover:text-white p-1" title="Eliminar bloque"><i class="fa-solid fa-trash-can"></i></button></td></tr>
+            <tr>
+                <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">5.1</td>
+                <td class="p-3 align-top" contenteditable="true">Participar en actividades físico-deportivas en entornos naturales, terrestres o acuáticos, disfrutando del entorno de manera sostenible, minimizando el impacto ambiental que estas puedan producir y siendo conscientes de su huella ecológica.</td>
+                <td class="p-3 align-top" contenteditable="true">F3 Análisis del riesgo en prácticas físico-deportivas en el medio natural. F4 Consumo responsable: autoconstrucción de materiales. F5 Cuidado del entorno próximo como servicio a la comunidad. F6 Iniciación en técnicas propias en entornos naturales.</td>
+                <td class="text-center no-print p-3 align-top"><button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button></td>
+            </tr>
+            <tr>
+                <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">5.2</td>
+                <td class="p-3 align-top" contenteditable="true">Practicar actividades físico-deportivas en el medio natural y urbano, aplicando normas de seguridad individuales y colectivas.</td>
+                <td class="p-3 align-top" contenteditable="true">F1 Normas de uso: respeto a normas viales en desplazamientos activos cotidianos. F2 Nuevos espacios y prácticas deportivas urbanas (parkour, skate). F3 Medidas de seguridad.</td>
+                <td class="text-center no-print p-3 align-top"><button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button></td>
+            </tr>
+        `;
+
+        // Datos completos de Objetivos Didácticos
+        const DEFAULT_OBJETIVOS_DIDACTICOS = [
+            { criterio: "1.1", significa: "Diseñar de forma guiada un plan o rutina muy simple de ejercicio adaptado a la condición física personal.", ejemplo: "Crear por parejas una rutina de 4 ejercicios de condición física orientada a la salud (resistencia/fuerza básica)." },
+            { criterio: "1.2", significa: "Aplicar de forma autónoma el calentamiento, controlar la intensidad del esfuerzo y mantener hábitos de higiene y postura.", ejemplo: "Dirigir de forma autónoma la fase de calentamiento general a un pequeño grupo de compañeros antes de un partido." },
+            { criterio: "1.3", significa: "Anticiparse a los riesgos, abrocharse el calzado, estirar correctamente y revisar el espacio antes de jugar.", ejemplo: "Inspeccionar el pabellón antes de iniciar un juego con móviles y verificar que los cordones y la ropa sean adecuados." },
+            { criterio: "1.4", significa: "Saber reaccionar ante una emergencia aplicando la conducta PAS (Proteger, Avisar, Socorrer) y llamadas al 112.", ejemplo: "Simular un accidente en la pista donde un compañero cae lesionado y ejecutar el protocolo de aviso e intervención básica." },
+            { criterio: "1.5", significa: "Identificar malos hábitos y conductas violentas o discriminatorias para rechazarlos activamente.", ejemplo: "Participar en un debate tras analizar vídeos de jugadas donde haya habido faltas de respeto o comportamientos antideportivos." },
+            { criterio: "1.6", significa: "Utilizar de forma correcta aplicaciones móviles o dispositivos para medir la actividad física sin correr riesgos digitales.", ejemplo: "Utilizar una app cuentapasos o podómetro en el móvil para registrar los pasos dados durante una ruta o sesión de resistencia." },
+            { criterio: "2.1", significa: "Planificar y autorregular proyectos motores colaborativos estableciendo revisiones periódicas.", ejemplo: "Planificar en grupo un torneo escolar de Ultimate o un reto de acrosport, realizando revisiones intermedias." },
+            { criterio: "2.2", significa: "Tomar decisiones tácticas acertadas en juegos (pasar, desmarcarse, defender) según la posición de compañeros y rivales.", ejemplo: "Tomar la decisión de realizar un pase al hueco o tirar a portería en un partido modificado de 3x3." },
+            { criterio: "2.3", significa: "Demostrar coordinación, equilibrio, fuerza y agilidad al resolver retos motores o habilidades deportivas.", ejemplo: "Completar un circuito de habilidades motrices (saltos, desplazamientos, giros y lanzamientos) con fluidez y precisión." },
+            { criterio: "3.1", significa: "Practicar deportes aceptando las reglas, respetando las decisiones arbitrales y mostrando deportividad.", ejemplo: "Felicitar al rival tras finalizar una competición y arbitrar un partido escolar con imparcialidad." },
+            { criterio: "3.2", significa: "Trabajar en equipo, asumir el rol asignado y colaborar para lograr el reto del grupo.", ejemplo: "Participar en un juego cooperativo donde todos deban tocar el balón antes de anotar o cruzar un espacio sin tocar el suelo." },
+            { criterio: "3.3", significa: "Resolver las discusiones del juego mediante la palabra, evitando insultos y discriminaciones.", ejemplo: "Dialogar para solucionar un desajuste en el marcador durante un partido sin árbitro, llegando a un acuerdo consensuado." },
+            { criterio: "4.1", significa: "Conocer, jugar y valorar las modalidades deportivas tradicionales reconociendo su valor histórico.", ejemplo: "Practicar una tirada de bolo palma o juegos autóctonos compartiendo sus reglas y orígenes tradicionales." },
+            { criterio: "4.2", significa: "Reconocer que cualquier deporte es apto para todas las personas sin importar su género o destreza.", ejemplo: "Practicar partidos mixtos e inclusivos garantizando las mismas oportunidades de participación para todo el alumnado." },
+            { criterio: "4.3", significa: "Expresar emociones, ideas o historias con el cuerpo utilizando o no música (mímica, danza, acrosport).", ejemplo: "Diseñar y representar en grupos una pequeña coreografía o montaje de acrosport de 1-2 minutos con música." },
+            { criterio: "5.1", significa: "Hacer ejercicio respetando el medio ambiente y dejando el entorno impecable (cero huella ecológica).", ejemplo: "Realizar una ruta de senderismo o carrera de orientación en un parque cercano aplicando la recogida de residuos." },
+            { criterio: "5.2", significa: "Seguir las pautas de seguridad al hacer ejercicio en la calle o la naturaleza (casco, señales, previsiones).", ejemplo: "Realizar una salida en bicicleta o patinete respetando la señalización vial y las distancias de seguridad." }
+        ];
+
+        // Datos completos de Tareas y Evidencias
+        const DEFAULT_TAREAS = [
+            { codigo: "1.1", tarea: "Por parejas, diseñar y realizar una secuencia de cuatro ejercicios de fuerza-resistencia y movilidad, con calentamiento y vuelta a la calma.", evidencia: "La secuencia es ordenada, segura, adaptada al nivel inicial y orientada a la salud." },
+            { codigo: "1.2", tarea: "Dirigir un calentamiento general a un pequeño grupo y regular la intensidad mediante escala del esfuerzo percibido.", evidencia: "Aplica activación, dosifica el esfuerzo, mantiene higiene y explica la finalidad de las tareas." },
+            { codigo: "1.3", tarea: "Realizar una revisión del pabellón, del material, del calzado y de la indumentaria antes de un circuito motor.", evidencia: "Detecta riesgos y aplica medidas preventivas antes, durante y después de la práctica." },
+            { codigo: "1.4", tarea: "Simular una caída durante un juego y aplicar la conducta PAS: proteger, avisar y socorrer sin poner en riesgo a la persona lesionada.", evidencia: "Mantiene la calma, protege la zona, solicita ayuda y comunica la información relevante." },
+            { codigo: "1.5", tarea: "Analizar una situación de juego con insultos, exclusión o juego excesivamente agresivo y proponer alternativas de convivencia.", evidencia: "Identifica el problema, argumenta sus consecuencias y propone conductas respetuosas." },
+            { codigo: "1.6", tarea: "Registrar pulsaciones, tiempo o pasos mediante una aplicación o dispositivo disponible y comentar sus riesgos de privacidad y uso responsable.", evidencia: "Utiliza el recurso con finalidad motriz, interpreta el dato y protege la información personal." },
+            { codigo: "2.1", tarea: "En grupos, crear un reto motor cooperativo para otra clase, probarlo, revisarlo y presentar la versión final.", evidencia: "Planifica por fases, asume responsabilidades, revisa el proceso y participa en la coevaluación." },
+            { codigo: "2.2", tarea: "Jugar partidos reducidos 3x3 de invasión en los que se valore cuándo pasar, desmarcarse, defender o finalizar.", evidencia: "Toma decisiones ajustadas a compañeros, adversarios, espacio y objetivo del juego." },
+            { codigo: "2.3", tarea: "Completar un circuito de saltos, giros, desplazamientos, lanzamientos y equilibrios con distintos niveles de dificultad.", evidencia: "Controla el cuerpo, adapta la ejecución y resuelve las tareas con precisión y creatividad." },
+            { codigo: "3.1", tarea: "Participar en un mini-torneo de bádminton o balonmano asumiendo también funciones de arbitraje y organización.", evidencia: "Respeta reglas y decisiones, acepta el resultado y actúa con juego limpio." },
+            { codigo: "3.2", tarea: "Resolver un reto cooperativo en el que todo el equipo deba intervenir y rotar por diferentes roles.", evidencia: "Escucha, ayuda, cumple el rol y contribuye al logro común." },
+            { codigo: "3.3", tarea: "Resolver mediante diálogo un desacuerdo sobre el marcador o la distribución de roles en un juego sin árbitro.", evidencia: "Expresa el punto de vista con respeto, escucha y alcanza acuerdos inclusivos." },
+            { codigo: "4.1", tarea: "Practicar un juego tradicional de Cantabria, como bolo palma adaptado, y compararlo con un juego de otra cultura.", evidencia: "Conoce reglas básicas, participa y explica su origen o valor cultural." },
+            { codigo: "4.2", tarea: "Organizar estaciones deportivas mixtas e inclusivas y debatir sobre los estereotipos asociados a cada modalidad.", evidencia: "Participa sin discriminación y argumenta que las actividades no pertenecen a un único género o nivel." },
+            { codigo: "4.3", tarea: "Crear en grupos una composición de expresión corporal o acrosport de 1-2 minutos con o sin música.", evidencia: "Utiliza el cuerpo para comunicar, coordina al grupo y muestra creatividad y seguridad." },
+            { codigo: "5.1", tarea: "Preparar en el pabellón una micro-ruta de orientación o senderismo por el entorno próximo del instituto, incorporando normas de mínimo impacto.", evidencia: "Respeta el entorno, reduce residuos y justifica medidas de sostenibilidad." },
+            { codigo: "5.2", tarea: "Simular y después realizar, cuando sea posible, un desplazamiento activo u orientación en el entorno próximo aplicando normas de seguridad.", evidencia: "Planifica el recorrido, identifica riesgos y cumple normas individuales y colectivas." }
+        ];
+
+        // Datos iniciales de Procedimientos de Evaluación
+        const DEFAULT_PROCEDIMIENTOS = [
+            { procedimiento: "Observación sistemática y directa", aplicacion: "Registro continuo del comportamiento, la actitud, la participación y la aplicación de normas en el día a día del pabellón.", criterios: "1.2, 1.3, 3.1, 3.3, 5.1" },
+            { procedimiento: "Evaluación de ejecuciones prácticas", aplicacion: "Comprobación del nivel de dominio motriz, táctico o expresivo mediante tareas globales o analíticas.", criterios: "1.1, 2.2, 2.3, 4.1, 4.3" },
+            { procedimiento: "Análisis de producciones", aplicacion: "Revisión de trabajos escritos, fichas de planificación de rutinas, proyectos o soportes digitales elaborados por los alumnos.", criterios: "1.1, 1.6, 2.1" },
+            { procedimiento: "Autoevaluación y Coevaluación", aplicacion: "Fomento de la reflexión metacognitiva del alumno sobre su propio proceso de aprendizaje y el de sus compañeros.", criterios: "1.5, 2.1, 3.2" }
+        ];
+
+        // Datos iniciales de Instrumentos de Evaluación
+        const DEFAULT_INSTRUMENTOS = [
+            { instrumento: "Listas de cotejo / Checklists", uso: "Calentamiento, higiene, seguridad, verificación de pautas motrices básicas y control de material." },
+            { instrumento: "Registro anecdotario", uso: "Control específico de actitudes de juego limpio (fair play), convivencia y resolución pacífica de conflictos." },
+            { instrumento: "Rúbricas analíticas (escala 1-4)", uso: "Valoración cualitativa de ejecuciones técnicas, expresión corporal, coreografías y proyectos motores." },
+            { instrumento: "Instrumento GPAI", uso: "Evaluación de la toma de decisiones tácticas en los deportes y juegos colectivos de invasión." },
+            { instrumento: "Dianas de autoevaluación y cuestionarios", uso: "Reflexión del alumnado, coevaluación del trabajo cooperativo y valoración de hábitos de vida activa." }
+        ];
+
+        // Datos iniciales de la vista de saberes básicos (tarjetas)
+        const DEFAULT_SABERES = [
+            {
+                title: "Bloque A: Salud y Estilo de Vida Activo",
+                items: [
+                    "Tasa mínima de actividad física diaria y semanal. Adaptación de la tarea.",
+                    "Alimentación saludable y valor nutricional de los alimentos.",
+                    "Educación postural, musculatura 'core' y técnicas de relajación.",
+                    "El cuidado del cuerpo (calentamiento autónomo) y prevención de lesiones.",
+                    "Efectos sobre la salud de malos hábitos y trastornos alimenticios."
+                ]
+            },
+            {
+                title: "Bloque B: Organización y Proyectos Motores",
+                items: [
+                    "Planificación y autorregulación de proyectos motores y autoevaluación.",
+                    "Preparación de la práctica: autoconstrucción de materiales.",
+                    "La higiene como elemento imprescindible en la práctica.",
+                    "Herramientas digitales, gestión de la actividad y seguridad."
+                ]
+            },
+            {
+                title: "Bloque C: Resolución de Acciones Motrices",
+                items: [
+                    "Uso consciente del cuerpo en situaciones motrices individuales.",
+                    "Pautas grupales y análisis de movimientos del adversario.",
+                    "Estrategias de ataque y defensa en colaboración-oposición.",
+                    "Capacidades perceptivo-motrices, condicionales y creatividad motriz."
+                ]
+            },
+            {
+                title: "Bloque D y E: Emoción, Socialización y Cultura Motriz",
+                items: [
+                    "Gestión emocional, estrés, perseverancia y tolerancia a la frustración.",
+                    "Habilidades sociales, respeto a las reglas y arbitraje deportivo.",
+                    "Aportaciones de la cultura motriz, juegos y danzas de Cantabria e interculturalidad.",
+                    "Deporte y perspectiva de género, igualdad y análisis crítico del deporte de masas."
+                ]
+            },
+            {
+                title: "Bloque F: Entorno Natural y Sostenibilidad",
+                items: [
+                    "Normas de uso, seguridad vial en desplazamientos activos cotidianos.",
+                    "Nuevos espacios y prácticas deportivas urbanas (parkour, skate).",
+                    "Análisis del riesgo en el medio natural y consumo responsable.",
+                    "Cuidado del entorno próximo como servicio a la comunidad y técnicas de orientación."
+                ]
+            }
+        ];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            loadData();
+        });
+
+        function switchTab(tab) {
+            const sections = ['objetivos', 'competencias-clave', 'competencias', 'criterios', 'objetivos-didacticos', 'tareas', 'evaluacion', 'saberes'];
+            sections.forEach(s => {
+                const el = document.getElementById('section-' + s);
+                if(el) el.classList.add('hidden');
+                const btn = document.getElementById('btn-tab-' + s);
+                if(btn) btn.className = "pb-3 px-4 font-bold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition flex items-center gap-2 whitespace-nowrap";
+            });
+
+            const targetSec = document.getElementById('section-' + tab);
+            if(targetSec) targetSec.classList.remove('hidden');
+            const targetBtn = document.getElementById('btn-tab-' + tab);
+            if(targetBtn) targetBtn.className = "pb-3 px-4 font-bold text-sm border-b-2 border-blue-600 text-blue-600 transition flex items-center gap-2 whitespace-nowrap";
+        }
+
+        function loadData() {
+            // Cargar Objetivos ESO
+            const savedObj = localStorage.getItem('ef_cantabria_objetivos');
+            renderObjetivosGrid(savedObj ? JSON.parse(savedObj) : DEFAULT_OBJETIVOS);
+
+            // Cargar Competencias Clave
+            const savedCompClave = localStorage.getItem('ef_cantabria_competencias_clave');
+            renderCompetenciasClaveGrid(savedCompClave ? JSON.parse(savedCompClave) : DEFAULT_COMPETENCIAS_CLAVE);
+
+            // Cargar Competencias Específicas
+            const savedComp = localStorage.getItem('ef_cantabria_competencias');
+            renderCompetenciasGrid(savedComp ? JSON.parse(savedComp) : DEFAULT_COMPETENCIAS);
+
+            // Cargar Criterios
+            const savedCrit = localStorage.getItem('ef_cantabria_criteria');
+            document.getElementById('table-criteria-body').innerHTML = savedCrit || DEFAULT_CRITERIA;
+
+            // Cargar Objetivos Didácticos
+            const savedObjDidac = localStorage.getItem('ef_cantabria_objetivos_didacticos');
+            renderObjetivosDidacticosTable(savedObjDidac ? JSON.parse(savedObjDidac) : DEFAULT_OBJETIVOS_DIDACTICOS);
+
+            // Cargar Tareas
+            const savedTareas = localStorage.getItem('ef_cantabria_tareas');
+            renderTareasTable(savedTareas ? JSON.parse(savedTareas) : DEFAULT_TAREAS);
+
+            // Cargar Procedimientos
+            const savedProc = localStorage.getItem('ef_cantabria_procedimientos');
+            renderProcedimientosTable(savedProc ? JSON.parse(savedProc) : DEFAULT_PROCEDIMIENTOS);
+
+            // Cargar Instrumentos
+            const savedInst = localStorage.getItem('ef_cantabria_instrumentos');
+            renderInstrumentosTable(savedInst ? JSON.parse(savedInst) : DEFAULT_INSTRUMENTOS);
+
+            // Cargar Título
+            const savedTitle = localStorage.getItem('ef_cantabria_title');
+            if(savedTitle) document.getElementById('navTitle').innerText = savedTitle;
+
+            // Cargar Saberes
+            const savedSaberes = localStorage.getItem('ef_cantabria_saberes');
+            renderSaberesGrid(savedSaberes ? JSON.parse(savedSaberes) : DEFAULT_SABERES);
+        }
+
+        // Renderizado de Objetivos de la ESO
+        function renderObjetivosGrid(data) {
+            const grid = document.getElementById('objetivos-grid');
+            grid.innerHTML = '';
+            data.forEach((obj, index) => {
+                const card = document.createElement('div');
+                card.className = "bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3 group";
+                card.innerHTML = `
+                    <div class="bg-blue-600 text-white font-bold text-xs px-2.5 py-1 rounded-md flex-shrink-0 mt-0.5">
+                        <span contenteditable="true">${obj.id}</span>
+                    </div>
+                    <div class="flex-grow">
+                        <p contenteditable="true" class="text-sm text-slate-700 leading-relaxed focus:bg-white focus:p-2 focus:rounded">${obj.text}</p>
+                    </div>
+                    <div class="no-print flex items-center gap-1 opacity-0 group-hover:opacity-100 transition">
+                        <button onclick="deleteObjetivoCard(${index})" class="bg-rose-100 hover:bg-rose-200 text-rose-700 text-xs px-2 py-1 rounded font-medium transition" title="Eliminar objetivo"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function getObjetivosFromDOM() {
+            const items = document.querySelectorAll('#objetivos-grid > div');
+            const data = [];
+            items.forEach(item => {
+                data.push({
+                    id: item.querySelector('.bg-blue-600 span').innerText,
+                    text: item.querySelector('p').innerText
+                });
+            });
+            return data;
+        }
+
+        function addObjetivoCard() {
+            const data = getObjetivosFromDOM();
+            data.push({ id: "x)", text: "Redacta aquí el nuevo objetivo de la etapa..." });
+            renderObjetivosGrid(data);
+        }
+
+        function deleteObjetivoCard(index) {
+            if(confirm('¿Eliminar este objetivo de etapa?')) {
+                const data = getObjetivosFromDOM();
+                data.splice(index, 1);
+                renderObjetivosGrid(data);
+            }
+        }
+
+        // Renderizado de Competencias Clave
+        function renderCompetenciasClaveGrid(data) {
+            const grid = document.getElementById('competencias-clave-grid');
+            grid.innerHTML = '';
+            data.forEach((block, bIndex) => {
+                const card = document.createElement('div');
+                card.className = "bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-4 group";
+                
+                let itemsHtml = block.items.map((item, iIndex) => `
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-200 group/item">
+                        <span contenteditable="true" class="bg-blue-600 text-white font-bold text-xs px-2.5 py-1 rounded-md flex-shrink-0 mt-0.5">${item.code}</span>
+                        <p contenteditable="true" class="text-sm text-slate-700 flex-grow leading-relaxed">${item.text}</p>
+                        <button onclick="removeCompetenciaClaveItem(${bIndex}, ${iIndex})" class="text-slate-400 hover:text-rose-600 no-print opacity-0 group-hover/item:opacity-100 transition p-1" title="Eliminar descriptor"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                `).join('');
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between gap-2 border-b border-slate-200 pb-3">
+                        <h4 contenteditable="true" class="font-extrabold text-blue-600 text-base md:text-lg flex-grow">${block.title}</h4>
+                        <div class="no-print flex items-center gap-1">
+                            <button onclick="addCompetenciaClaveItem(${bIndex})" class="bg-blue-100 hover:bg-blue-200 text-blue-700 text-xs px-2.5 py-1 rounded font-medium transition" title="Añadir descriptor"><i class="fa-solid fa-plus"></i> Añadir Descriptor</button>
+                            <button onclick="deleteCompetenciaClaveBlock(${bIndex})" class="bg-rose-100 hover:bg-rose-200 text-rose-700 text-xs px-2.5 py-1 rounded font-medium transition" title="Eliminar competencia clave"><i class="fa-solid fa-trash-can"></i></button>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        ${itemsHtml}
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function getCompetenciasClaveFromDOM() {
+            const cards = document.querySelectorAll('#competencias-clave-grid > div');
+            const data = [];
+            cards.forEach(card => {
+                const title = card.querySelector('h4').innerText;
+                const itemDivs = card.querySelectorAll('.space-y-3 > div');
+                const items = [];
+                itemDivs.forEach(div => {
+                    items.push({
+                        code: div.querySelector('span').innerText,
+                        text: div.querySelector('p').innerText
+                    });
+                });
+                data.push({ title, items });
+            });
+            return data;
+        }
+
+        function addCompetenciaClaveCard() {
+            const data = getCompetenciasClaveFromDOM();
+            data.push({
+                title: "Nueva Competencia Clave",
+                items: [{ code: "NC1", text: "Descripción del descriptor operativo..." }]
+            });
+            renderCompetenciasClaveGrid(data);
+        }
+
+        function deleteCompetenciaClaveBlock(index) {
+            if(confirm('¿Eliminar esta competencia clave completa?')) {
+                const data = getCompetenciasClaveFromDOM();
+                data.splice(index, 1);
+                renderCompetenciasClaveGrid(data);
+            }
+        }
+
+        function addCompetenciaClaveItem(blockIndex) {
+            const data = getCompetenciasClaveFromDOM();
+            data[blockIndex].items.push({ code: "NX", text: "Nuevo descriptor operativo..." });
+            renderCompetenciasClaveGrid(data);
+        }
+
+        function removeCompetenciaClaveItem(blockIndex, itemIndex) {
+            const data = getCompetenciasClaveFromDOM();
+            data[blockIndex].items.splice(itemIndex, 1);
+            renderCompetenciasClaveGrid(data);
+        }
+
+        // Renderizado de Competencias Específicas
+        function renderCompetenciasGrid(data) {
+            const grid = document.getElementById('competencias-grid');
+            grid.innerHTML = '';
+            data.forEach((comp, index) => {
+                const card = document.createElement('div');
+                card.className = "bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-3 relative group";
+                card.innerHTML = `
+                    <div class="flex items-center justify-between gap-2 border-b border-slate-200 pb-3">
+                        <h4 contenteditable="true" class="font-extrabold text-blue-600 text-base md:text-lg flex-grow">${comp.title}</h4>
+                        <div class="no-print flex items-center gap-1">
+                            <button onclick="deleteCompetenciaCard(${index})" class="bg-rose-100 hover:bg-rose-200 text-rose-700 text-xs px-2 py-1 rounded font-medium transition" title="Eliminar competencia"><i class="fa-solid fa-trash-can"></i></button>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Descripción de la Competencia</label>
+                        <p contenteditable="true" class="text-sm text-slate-700 leading-relaxed focus:bg-white focus:p-2 focus:rounded">${comp.text}</p>
+                    </div>
+                    <div class="pt-2 border-t border-slate-200/60 text-xs">
+                        <span class="font-bold text-slate-400 block mb-1">DESCRIPTORES DEL PERFIL DE SALIDA:</span>
+                        <span contenteditable="true" class="font-semibold text-slate-900 bg-white px-2 py-1 rounded border border-slate-200 inline-block">${comp.descriptors}</span>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function getCompetenciasFromDOM() {
+            const cards = document.querySelectorAll('#competencias-grid > div');
+            const data = [];
+            cards.forEach(card => {
+                data.push({
+                    title: card.querySelector('h4').innerText,
+                    text: card.querySelector('p').innerText,
+                    descriptors: card.querySelector('.border.border-slate-200').innerText
+                });
+            });
+            return data;
+        }
+
+        function addCompetenciaCard() {
+            const data = getCompetenciasFromDOM();
+            data.push({
+                title: "Nueva Competencia Específica",
+                text: "Redacta aquí la descripción detallada de la competencia específica...",
+                descriptors: "CCL1, CPSAA1..."
+            });
+            renderCompetenciasGrid(data);
+        }
+
+        function deleteCompetenciaCard(index) {
+            if(confirm('¿Eliminar esta competencia específica?')) {
+                const data = getCompetenciasFromDOM();
+                data.splice(index, 1);
+                renderCompetenciasGrid(data);
+            }
+        }
+
+        // Renderizado de Objetivos Didácticos
+        function renderObjetivosDidacticosTable(data) {
+            const tbody = document.getElementById('table-objetivos-didacticos-body');
+            tbody.innerHTML = '';
+            data.forEach((item) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">${item.criterio}</td>
+                    <td class="p-3 align-top" contenteditable="true">${item.significa}</td>
+                    <td class="p-3 align-top text-slate-600" contenteditable="true">${item.ejemplo}</td>
+                    <td class="text-center no-print p-3 align-top">
+                        <button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function getObjetivosDidacticosFromDOM() {
+            const rows = document.querySelectorAll('#table-objetivos-didacticos-body tr');
+            const data = [];
+            rows.forEach(row => {
+                const tds = row.querySelectorAll('td');
+                if(tds.length >= 3) {
+                    data.push({
+                        criterio: tds[0].innerText.trim(),
+                        significa: tds[1].innerText.trim(),
+                        ejemplo: tds[2].innerText.trim()
+                    });
+                }
+            });
+            return data;
+        }
+
+        function addObjetivoDidacticoRow() {
+            const data = getObjetivosDidacticosFromDOM();
+            data.push({
+                criterio: "X.X",
+                significa: "Redacta qué significa el objetivo didáctico...",
+                ejemplo: "Describe un ejemplo práctico para el aula..."
+            });
+            renderObjetivosDidacticosTable(data);
+        }
+
+        // Renderizado de Tareas y Evidencias
+        function renderTareasTable(data) {
+            const tbody = document.getElementById('table-tareas-body');
+            tbody.innerHTML = '';
+            data.forEach((item) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">${item.codigo}</td>
+                    <td class="p-3 align-top text-slate-700" contenteditable="true">${item.tarea}</td>
+                    <td class="p-3 align-top text-slate-600 font-medium" contenteditable="true">${item.evidencia}</td>
+                    <td class="text-center no-print p-3 align-top">
+                        <button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function getTareasFromDOM() {
+            const rows = document.querySelectorAll('#table-tareas-body tr');
+            const data = [];
+            rows.forEach(row => {
+                const tds = row.querySelectorAll('td');
+                if(tds.length >= 3) {
+                    data.push({
+                        codigo: tds[0].innerText.trim(),
+                        tarea: tds[1].innerText.trim(),
+                        evidencia: tds[2].innerText.trim()
+                    });
+                }
+            });
+            return data;
+        }
+
+        function addTareaRow() {
+            const data = getTareasFromDOM();
+            data.push({
+                codigo: "X.X",
+                tarea: "Describe la situación o tarea en el pabellón...",
+                evidencia: "Describe la evidencia observable..."
+            });
+            renderTareasTable(data);
+        }
+
+        // Renderizado de Procedimientos de Evaluación
+        function renderProcedimientosTable(data) {
+            const tbody = document.getElementById('table-procedimientos-body');
+            tbody.innerHTML = '';
+            data.forEach((item) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">${item.procedimiento}</td>
+                    <td class="p-3 align-top" contenteditable="true">${item.aplicacion}</td>
+                    <td class="p-3 align-top text-slate-600 font-medium" contenteditable="true">${item.criterios}</td>
+                    <td class="text-center no-print p-3 align-top">
+                        <button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function getProcedimientosFromDOM() {
+            const rows = document.querySelectorAll('#table-procedimientos-body tr');
+            const data = [];
+            rows.forEach(row => {
+                const tds = row.querySelectorAll('td');
+                if(tds.length >= 3) {
+                    data.push({
+                        procedimiento: tds[0].innerText.trim(),
+                        aplicacion: tds[1].innerText.trim(),
+                        criterios: tds[2].innerText.trim()
+                    });
+                }
+            });
+            return data;
+        }
+
+        function addProcedimientoRow() {
+            const data = getProcedimientosFromDOM();
+            data.push({
+                procedimiento: "Nuevo procedimiento...",
+                aplicacion: "Descripción de la aplicación...",
+                criterios: "X.X, X.X"
+            });
+            renderProcedimientosTable(data);
+        }
+
+        // Renderizado de Instrumentos de Evaluación
+        function renderInstrumentosTable(data) {
+            const tbody = document.getElementById('table-instrumentos-body');
+            tbody.innerHTML = '';
+            data.forEach((item) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">${item.instrumento}</td>
+                    <td class="p-3 align-top text-slate-700" contenteditable="true">${item.uso}</td>
+                    <td class="text-center no-print p-3 align-top">
+                        <button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function getInstrumentosFromDOM() {
+            const rows = document.querySelectorAll('#table-instrumentos-body tr');
+            const data = [];
+            rows.forEach(row => {
+                const tds = row.querySelectorAll('td');
+                if(tds.length >= 2) {
+                    data.push({
+                        instrumento: tds[0].innerText.trim(),
+                        uso: tds[1].innerText.trim()
+                    });
+                }
+            });
+            return data;
+        }
+
+        function addInstrumentoRow() {
+            const data = getInstrumentosFromDOM();
+            data.push({
+                instrumento: "Nuevo instrumento...",
+                uso: "Uso previsto de la herramienta..."
+            });
+            renderInstrumentosTable(data);
+        }
+
+        // Renderizado de Saberes Básicos (Tarjetas)
+        function renderSaberesGrid(data) {
+            const grid = document.getElementById('saberes-grid');
+            grid.innerHTML = '';
+            data.forEach((block, index) => {
+                const card = document.createElement('div');
+                card.className = "bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3 relative group";
+                
+                let itemsHtml = block.items.map((item, i) => `
+                    <li class="flex items-start justify-between gap-2 group/item">
+                        <span contenteditable="true" class="flex-grow focus:bg-white focus:p-1 focus:rounded">${item}</span>
+                        <button onclick="removeSaberItem(${index}, ${i})" class="text-slate-400 hover:text-rose-600 no-print opacity-0 group-hover/item:opacity-100 transition p-0.5" title="Eliminar ítem"><i class="fa-solid fa-xmark"></i></button>
+                    </li>
+                `).join('');
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between gap-2 border-b border-slate-200 pb-2">
+                        <h4 contenteditable="true" class="font-bold text-blue-600 text-base flex-grow">${block.title}</h4>
+                        <div class="no-print flex items-center gap-1">
+                            <button onclick="addSaberItem(${index})" class="bg-blue-100 hover:bg-blue-200 text-blue-700 text-xs px-2 py-1 rounded font-medium transition" title="Añadir punto"><i class="fa-solid fa-plus"></i></button>
+                            <button onclick="deleteSabesCard(${index})" class="bg-rose-100 hover:bg-rose-200 text-rose-700 text-xs px-2 py-1 rounded font-medium transition" title="Eliminar bloque"><i class="fa-solid fa-trash-can"></i></button>
+                        </div>
+                    </div>
+                    <ul class="list-disc list-inside text-xs text-slate-700 space-y-1.5">
+                        ${itemsHtml}
+                    </ul>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function getSaberesFromDOM() {
+            const cards = document.querySelectorAll('#saberes-grid > div');
+            const data = [];
+            cards.forEach(card => {
+                const items = [];
+                card.querySelectorAll('ul li span').forEach(li => items.push(li.innerText));
+                data.push({ title: card.querySelector('h4').innerText, items });
+            });
+            return data;
+        }
+
+        function addSaberItem(cardIndex) {
+            const data = getSaberesFromDOM();
+            data[cardIndex].items.push("Nuevo contenido de saber básico...");
+            renderSaberesGrid(data);
+        }
+
+        function removeSaberItem(cardIndex, itemIndex) {
+            const data = getSaberesFromDOM();
+            data[cardIndex].items.splice(itemIndex, 1);
+            renderSaberesGrid(data);
+        }
+
+        function deleteSabesCard(index) {
+            if(confirm('¿Eliminar este bloque completo de saberes?')) {
+                const data = getSaberesFromDOM();
+                data.splice(index, 1);
+                renderSaberesGrid(data);
+            }
+        }
+
+        function addSabesCard() {
+            const data = getSaberesFromDOM();
+            data.push({ title: "NUEVO BLOQUE DE SABERES", items: ["Nuevo contenido asociado..."] });
+            renderSaberesGrid(data);
+        }
+
+        function saveChanges() {
+            localStorage.setItem('ef_cantabria_objetivos', JSON.stringify(getObjetivosFromDOM()));
+            localStorage.setItem('ef_cantabria_competencias_clave', JSON.stringify(getCompetenciasClaveFromDOM()));
+            localStorage.setItem('ef_cantabria_competencias', JSON.stringify(getCompetenciasFromDOM()));
+            localStorage.setItem('ef_cantabria_criteria', document.getElementById('table-criteria-body').innerHTML);
+            localStorage.setItem('ef_cantabria_objetivos_didacticos', JSON.stringify(getObjetivosDidacticosFromDOM()));
+            localStorage.setItem('ef_cantabria_tareas', JSON.stringify(getTareasFromDOM()));
+            localStorage.setItem('ef_cantabria_procedimientos', JSON.stringify(getProcedimientosFromDOM()));
+            localStorage.setItem('ef_cantabria_instrumentos', JSON.stringify(getInstrumentosFromDOM()));
+            localStorage.setItem('ef_cantabria_title', document.getElementById('navTitle').innerText);
+            localStorage.setItem('ef_cantabria_saberes', JSON.stringify(getSaberesFromDOM()));
+
+            showToast('¡Todos los cambios de las diferentes vistas se han guardado con éxito!');
+        }
+
+        function resetData() {
+            if(confirm('¿Deseas restablecer los valores originales de todo el currículo? Se perderán las modificaciones manuales.')) {
+                localStorage.removeItem('ef_cantabria_objetivos');
+                localStorage.removeItem('ef_cantabria_competencias_clave');
+                localStorage.removeItem('ef_cantabria_competencias');
+                localStorage.removeItem('ef_cantabria_criteria');
+                localStorage.removeItem('ef_cantabria_objetivos_didacticos');
+                localStorage.removeItem('ef_cantabria_tareas');
+                localStorage.removeItem('ef_cantabria_procedimientos');
+                localStorage.removeItem('ef_cantabria_instrumentos');
+                localStorage.removeItem('ef_cantabria_title');
+                localStorage.removeItem('ef_cantabria_saberes');
+                loadData();
+                showToast('Plantilla restablecida a la normativa oficial');
+            }
+        }
+
+        function addRow(tbodyId, type) {
+            const tbody = document.getElementById(tbodyId);
+            const tr = document.createElement('tr');
+            
+            if(type === 'block') {
+                tr.className = "bg-slate-800 text-white font-bold";
+                tr.innerHTML = `
+                    <td colspan="3" contenteditable="true" class="p-3 uppercase tracking-wide">NUEVO BLOQUE DE CONTENIDOS</td>
+                    <td class="text-center no-print p-3"><button onclick="deleteRow(this)" class="text-rose-300 hover:text-white p-1" title="Eliminar bloque"><i class="fa-solid fa-trash-can"></i></button></td>
+                `;
+            } else {
+                tr.innerHTML = `
+                    <td class="p-3 align-top font-bold text-blue-600" contenteditable="true">X.X</td>
+                    <td class="p-3 align-top" contenteditable="true">Nuevo criterio de evaluación oficial...</td>
+                    <td class="p-3 align-top" contenteditable="true">Saberes básicos asociados...</td>
+                    <td class="text-center no-print p-3 align-top"><button onclick="deleteRow(this)" class="text-rose-600 hover:text-rose-800 p-1" title="Eliminar fila"><i class="fa-solid fa-trash-can"></i></button></td>
+                `;
+            }
+            tbody.appendChild(tr);
+        }
+
+        function deleteRow(btn) {
+            const row = btn.closest('tr');
+            if(row && confirm('¿Deseas eliminar este elemento?')) {
+                row.remove();
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
